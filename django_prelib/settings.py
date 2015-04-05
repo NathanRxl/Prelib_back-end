@@ -71,7 +71,6 @@ DATABASES = {
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
-DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -104,6 +103,7 @@ STATICFILES_DIRS = (
 #Templates files
 TEMPLATES = [
     {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
     },
