@@ -10,3 +10,4 @@ class Report(models.Model):
     def __str__(self):
         columns = [datetime.strftime(self.report_date, "%d\%m\%Y %X"), str(self.station_id), str(self.broken_bikes)]
         return "(" + ", ".join(columns) + ")"
+    

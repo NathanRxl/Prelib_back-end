@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from report.models import Report
 from stationdict import stations
+import json
 
 def index(request):
     latest_reports = Report.objects.order_by('-report_date')[:4]
@@ -27,4 +28,20 @@ def add_report(request, station_id, broken_bikes):
                                 % station_id)
 
 
+def see_last_report(request, stationId):#à modifier pour renvoyer un json
+    if stationId in stations:
+        last_report = Report.objects.order_by('-report_date')[0]
+        if last_report.broken_bikes is None:
+            return HttpResponse("There is no report yet for this station")
+        else:
+            return HttpResponse("%s broken bikes were reported at #%s"
+                                %(last_report.broken_bikes,last_report.report_date))
+    else:
+        return HttpResponse("Sorry, but #%s is not a valid station id."
+                                % station_id)
+        
+        
+        
+                
+            
 
