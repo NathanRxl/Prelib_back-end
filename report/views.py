@@ -10,7 +10,7 @@ def index(request):
     output = " ".join(str(report) for report in latest_reports)
     return HttpResponse(output)
 
-def add_report(request, station_id, broken_bikes):
+def add_report(request, station_id, broken_bikes):##add a report to database
     if station_id in stations:
         new_report = Report(report_date=timezone.now(), station_id=station_id, broken_bikes=broken_bikes)
         new_report.save()
@@ -28,14 +28,18 @@ def add_report(request, station_id, broken_bikes):
                                 % station_id)
 
 
-def see_last_report(request, stationId):#à modifier pour renvoyer un json
+def see_last_report(request, stationId):##returns a dictionnary with data about the last report in a JSON format
     if stationId in stations:
-        last_report = Report.objects.order_by('-report_date')[0]
+        last_report = Report.objects.get(station_id=stationId).order_by('-report_date')[0]
         if last_report.broken_bikes is None:
-            return HttpResponse("There is no report yet for this station")
+            return HttpResponse("There is no report yet for this station.")
         else:
-            return HttpResponse("%s broken bikes were reported at #%s"
-                                %(last_report.broken_bikes,last_report.report_date))
+            data = {
+                'number':'last_report.broken_bikes',
+                'date':'last_report.report_date',
+                'id':'stationId'
+            }
+            return HttpResponse(json.dumps(data))
     else:
         return HttpResponse("Sorry, but #%s is not a valid station id."
                                 % station_id)
