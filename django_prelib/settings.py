@@ -10,7 +10,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+<<<<<<< HEAD
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+=======
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+>>>>>>> ba40893cfc03f3c84497840daff9d73f4c62a4e5
 
 
 # Quick-start development settings - unsuitable for production
@@ -68,10 +72,13 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
+=======
+>>>>>>> ba40893cfc03f3c84497840daff9d73f4c62a4e5
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -83,6 +90,7 @@ USE_I18N = True
 
 USE_L10N = True
 
+<<<<<<< HEAD
 USE_TZ = True
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -120,3 +128,16 @@ TEMPLATES = [
         },
     },
     ]
+=======
+USE_TZ = False
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.7/howto/static-files/
+
+STATIC_URL = '/static/'
+
+#Templates files
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+>>>>>>> ba40893cfc03f3c84497840daff9d73f4c62a4e5

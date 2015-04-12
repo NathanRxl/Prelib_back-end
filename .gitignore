@@ -2,4 +2,9 @@
 *.pyo
 /report/__pycache__/*
 /report/migrations/__pycache__/*
+<<<<<<< HEAD
 /django_prelib/__pycache__/*
+=======
+/django_prelib/__pycache__/*
+.env
+>>>>>>> ba40893cfc03f3c84497840daff9d73f4c62a4e5
