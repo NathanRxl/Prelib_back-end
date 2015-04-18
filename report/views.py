@@ -44,9 +44,11 @@ def see_last_report(request, stationId):##returns a dictionnary with data about 
             if last_report.broken_bikes is None:
                 return HttpResponse("There is no report yet for this station.")
             else:
+                broken_bikes = last_report.broken_bikes
+                report_date = last_report.report_date
                 data = {
-                    'number':'last_report.broken_bikes',
-                    'date':'last_report.report_date',
+                    'number':'broken_bikes',
+                    'date':'report_date',
                     'id':'stationId'
                 }
                 return HttpResponse(json.dumps(data))
