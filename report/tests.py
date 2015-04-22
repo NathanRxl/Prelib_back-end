@@ -1,8 +1,5 @@
 from django.test import TestCase
-<<<<<<< HEAD
 
-# Create your tests here.
-=======
 from django.test.client import Client
 from django.utils import timezone
 from report.models import Report
@@ -52,4 +49,3 @@ class ReportViewsTestCase(TestCase):
         self.assertTrue(report18002_valid_0 == HttpResponse("Thanks for reporting broken bikes. We note that at the moment, no bikes are broken at station #18002."))
 
         self.assertTrue(len(Reports.objects.all()) == 3)
->>>>>>> ba40893cfc03f3c84497840daff9d73f4c62a4e5

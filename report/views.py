@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.utils import timezone
 from report.models import Report
 from stationdict import stations
-
 import json
 
 
@@ -55,7 +54,3 @@ def see_last_report(request, stationId):##returns a dictionnary with data about 
         else:
             return HttpResponse("Sorry, but #%s is not a valid station id."
                                     % station_id)
-        
-        
-        
-
