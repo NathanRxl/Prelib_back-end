@@ -5,7 +5,3 @@ dj-database-url==0.3.0
 dj-static==0.0.6
 gunicorn==19.3.0
 static3==0.5.1
-<<<<<<< HEAD
-=======
-pytz==2015.2
->>>>>>> ba40893cfc03f3c84497840daff9d73f4c62a4e5
